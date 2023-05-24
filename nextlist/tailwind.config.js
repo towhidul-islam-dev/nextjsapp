@@ -7,7 +7,7 @@ module.exports = {
         ubuntu : ["var(--font-ubuntu)"],
       },
       gridTemplateColumns:{
-        'resLayout' : "repeat(auto-fit, minmax(18rem, 1fr))", 
+        'resLayout' : "repeat(auto-fit, minmax(14rem, 1fr))", 
         'resLayoutMovie' : "repeat(auto-fit, minmax(14rem, 1fr))", 
         'pagination' : "repeat(auto-fit, minmax(2rem, 1fr))", 
       }

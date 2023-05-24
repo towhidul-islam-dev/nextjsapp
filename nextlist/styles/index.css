@@ -4,3 +4,32 @@
 /* purgecss end ignore */
 
 @tailwind utilities;
+
+.navLink {
+    @apply hover:text-gray-600 transition-colors duration-200;
+}
+.productContainer{
+    height: calc(100vh - 118px);
+}
+.auth-button{
+    @apply mt-12 bg-slate-100 py-4 px-8 rounded-lg drop-shadow-lg cursor-pointer capitalize font-bold text-gray-800;
+}
+.auth-container{
+    @apply border border-gray-400 rounded-xl flex items-center justify-center flex-col h-80 w-80 bg-[#ffaaee6c] filter;
+}
+
+/* !Animation for Dynamic Content Start */
+    .dynamic{
+        animation: dynamicContent 1s ease-in 1 forwards;
+    }
+    @keyframes dynamicContent {
+        0%{
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        100%{
+            transform: translateX(0%);
+            opacity: 1;
+        }
+    }
+/* !Animation for Dynamic Content End */

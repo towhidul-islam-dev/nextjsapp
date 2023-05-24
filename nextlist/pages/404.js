@@ -9,7 +9,7 @@ const PageNotFound = () => {
             // router.go(-1); // It will basically move back the page by one page...
             router.push("/");
         }, 4000);
-    },[])
+    },[]) 
     return ( 
         <div className="flex items-center justify-center flex-col mt-52">
             <h2>Oooops...</h2>

@@ -3,19 +3,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Movie = () => {
-    const [movie,setMovie] = useState([]);
+const productUrl = "https://dummyjson.com/products"
+
+const Products = () => {
+    const [product,setProduct] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     // const [isError ,setIsError] = (true);
     
-    const myMovie = async () => {
-        const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=68cb9ed528ca834ec647619501b03f57&language=en-US&page=4`);
-        const movieData = await res.json();
-        const allMovies = [...movieData.results];
-        setMovie([...allMovies]);
+    const myProduct = async () => {
+        const res = await fetch("https://dummyjson.com/products");
+        const productData = await res.json();
+        // const allProduct = [...productData.results];
+
+        if(!res.ok) throw new Error("url might not be available right now😞😔");
+
+        console.log(productData);
+        setProduct([productData]);
     }
     useEffect(() => {
-        myMovie();
+        myProduct();
         setIsLoading(false);
 
         const checkOnlineOrNot = window.navigator.onLine;
@@ -23,14 +29,15 @@ const Movie = () => {
         // console.log(checkOnlineOrNot ? "onLine" : "offline"); 
         // setIsError(checkOnlineOrNot);
     },[])
+    console.log(product);
     return ( 
         <div className="flex justify-center">
-            <div className="m-8 w-10/12 container">
+            {/* <div className="m-8 w-10/12 container">
                 <h2 className="text-4xl font-bold text-center mb-10 first-letter:text-7xl first-letter:text-green-400 capitalize">Movie Data will be shown here...</h2>
                 {
                     isLoading ? <h2 className="flex items-cneter justify-center h-full text-5xl transition-all animate-pulse duration-150 capitalize first-letter:text-7xl first-letter:text-green-400">"Loading..."</h2> : <div className="grid grid-cols-resLayoutMovie gap-5  rounded-xl overflow-hidden">
                     {
-                        movie.map(mov => {
+                        product.map(mov => {
                             const {backdrop_path:bp,original_title:ot,release_date:rd,poster_path:pp,overview,title,id} = mov;
                             const imagePath = `https://image.tmdb.org/t/p/original${pp}`;
                             return (
@@ -51,9 +58,9 @@ const Movie = () => {
                     </div>    
                 }
                 
-            </div>
+            </div> */}
         </div>
      );
 }
  
-export default Movie;
+export default Products;
